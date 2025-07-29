@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VaultofCodes Tasks</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #d0eafc, #e0c3fc);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .card {
+      background-color: #3a86ff;
+      color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background-color: #265df2;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      transition: border 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #3a86ff;
+      outline: none;
+    }
+
+    .radio-group {
+      margin-top: 10px;
+    }
+
+    .radio-group label {
+      display: inline-block;
+      margin-right: 15px;
+    }
+
+    .strength-bar {
+      margin-top: 10px;
+      padding: 5px;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #3a86ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #265df2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Task 1: Stylish Card -->
+    <div class="card">
+      <h2>👋 Welcome to VaultofCodes</h2>
+      <p>Empowering Interns to Build and Learn!</p>
+    </div>
+
+    <!-- Task 2: Interactive Registration Form -->
+    <form>
+      <h2>📝 User Registration Form</h2>
+
+      <label>Full Name</label>
+      <input type="text" placeholder="e.g. Trisha Pillay" required />
+
+      <label>Email Address</label>
+      <input type="email" placeholder="e.g. you@example.com" required />
+
+      <label>Password</label>
+      <input type="password" id="password" oninput="checkStrength()" required />
+
+      <label>Confirm Password</label>
+      <input type="password" required />
+
+      <label>Date of Birth</label>
+      <input type="date" required />
+
+      <label>Gender</label>
+      <div class="radio-group">
+        <label><input type="radio" name="gender" /> Male</label>
+        <label><input type="radio" name="gender" /> Female</label>
+        <label><input type="radio" name="gender" /> Other</label>
+      </div>
+
+      <label>Upload Profile Picture</label>
+      <input type="file" accept="image/*" />
+
+      <label>
+        <input type="checkbox" required /> I agree to the Terms and Conditions
+      </label>
+
+      <div class="strength-bar" id="strength">Password strength: </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    function checkStrength() {
+      const pwd = document.getElementById("password").value;
+      const strength = document.getElementById("strength");
+      let result = "Password strength: ";
+
+      if (pwd.length < 6) {
+        result += "Weak 🔴";
+        strength.style.color = "red";
+      } else if (pwd.match(/[A-Z]/) && pwd.match(/[0-9]/) && pwd.length >= 8) {
+        result += "Strong 🟢";
+        strength.style.color = "green";
+      } else {
+        result += "Medium 🟡";
+        strength.style.color = "orange";
+      }
+
+      strength.textContent = result;
+    }
+  </script>
+</body>
+</html>
